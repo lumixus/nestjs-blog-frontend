@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Link, Outlet } from 'react-router-dom';
+import { Layout, Menu, theme } from 'antd';
+
+const { Header, Content, Footer } = Layout;
+
+
 
 function App() {
+
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="layout">
+    <Header style={{ display: 'flex', alignItems: 'center' }}>
+      <div className="demo-logo" />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        items={[{
+          label: <Link to={"/blogs"}>Blogs</Link>,
+          key: "blogs"
+        }]}
+      />
+    </Header>
+    <Content style={{ padding: '50px 50px' }}>
+      <div className="site-layout-content" style={{ background: colorBgContainer, padding: "30px 0px" }}>
+        <Outlet />
+      </div>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>Emir Taşkın @{new Date().getFullYear()}</Footer>
+  </Layout>
   );
 }
 
