@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu, MenuProps, theme } from 'antd';
 
 const { Header, Content, Footer } = Layout;
+
+
+const items: MenuProps['items'] = [
+  {
+    label: <Link to={"/"}>Homepage</Link>,
+    key: "homepage"
+  },
+  {
+    label: <Link to={"/blogs"}>Blogs</Link>,
+    key: "blogs"
+  }
+]
 
 
 
@@ -14,15 +26,11 @@ function App() {
 
   return (
     <Layout className="layout">
-    <Header style={{ display: 'flex', alignItems: 'center' }}>
-      <div className="demo-logo" />
+    <Header>
       <Menu
         theme="dark"
         mode="horizontal"
-        items={[{
-          label: <Link to={"/blogs"}>Blogs</Link>,
-          key: "blogs"
-        }]}
+        items={items}
       />
     </Header>
     <Content style={{ padding: '50px 50px' }}>
