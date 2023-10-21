@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const { Title } = Typography
 
 export type BlogStructure = {
-    id: string,
+    _id: string,
     thumbnail: string,
     title: string,
     content: string,
@@ -36,7 +36,7 @@ const BlogOverview = (props: BlogOverviewType) => {
                 </Col>
             </Row>
             <Row>
-                <Link to={`/blog/${props.Blog.id}`}><Title level={2}>{props.Blog.title}</Title></Link>
+                <Link to={`/blog/${props.Blog._id}`}><Title level={2}>{props.Blog.title}</Title></Link>
             </Row>
             
         </Col>

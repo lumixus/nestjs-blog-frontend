@@ -13,10 +13,12 @@ const items: MenuProps['items'] = [
   {
     label: <Link to={"/blogs"}>Blogs</Link>,
     key: "blogs"
+  },
+  {
+    label: <Link style={{float: 'right'}} to={"/login"}>Login</Link>,
+    key: "login"
   }
 ]
-
-
 
 function App() {
 
@@ -38,7 +40,7 @@ function App() {
         <Outlet />
       </div>
     </Content>
-    <Footer style={{ textAlign: 'center' }}>Emir Taşkın @{new Date().getFullYear()}</Footer>
+    <Footer style={{ textAlign: 'center' }}>Lumixus @ {new Date().getFullYear()}</Footer>
   </Layout>
   );
 }
